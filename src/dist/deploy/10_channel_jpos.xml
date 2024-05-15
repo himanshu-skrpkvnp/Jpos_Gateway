@@ -2,7 +2,7 @@
                  logger="Q2">
     <channel class="org.jpos.iso.channel.XMLChannel"
              packager="org.jpos.iso.packager.XMLPackager">
-        <property name="host" value="isobridge.jpos.org" />
+        <property name="host" value="127.0.0.1" />
         <property name="port" value="9000" />
     </channel>
     <in>jpos-send</in>
