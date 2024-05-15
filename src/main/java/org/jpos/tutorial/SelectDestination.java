@@ -16,22 +16,23 @@ public class SelectDestination implements TransactionParticipant, Configurable {
     @Override
     public int prepare(long id, Serializable context) {
         Context ctx = (Context) context;
-        LogEvent evt  = new LogEvent( "___________in the  custom participant--------" ) ;
+
+        LogEvent evt  = new LogEvent(  ContextConstants.DESTINATION.toString() +"  ___________in the  custom participant--------" ) ;
+
+
+
         logger.log(evt);
         ISOMsg m = (ISOMsg) ctx.get(ContextConstants.REQUEST.toString());
-        if (m != null && (m.hasField(2) || m.hasField(35))) {
-            try {
-                Card card = Card.builder().isomsg(m).build();
-                String s = cfg.get("bin." + card.getBin(), null);
-                s = "myMux" ;
-
-                ctx.put(ContextConstants.DESTINATION.toString(), s);
 
 
 
-            } catch (InvalidCardException ignore) {
+        if (  (m.hasField(13) )) {
 
-            }
+                String s = "myMux" ;
+                ctx.put(ContextConstants.DESTINATION.toString(), s );
+                LogEvent  evt2  = new LogEvent( ContextConstants.DESTINATION.toString() , s+"hii there" ) ;
+
+
         }
         return PREPARED | NO_JOIN | READONLY;
     }
