@@ -3,6 +3,7 @@
     <property name="sessions" value="2"/>
     <property name="max-sessions" value="128"/>
     <property name="debug" value="true"/>
+    <participant class ="org.jpos.tutorial.SelectDestination"/>
     <participant class="org.jpos.transaction.participant.QueryHost"/>
     <participant class="org.jpos.transaction.participant.SendResponse"/>
 </txnmgr>
