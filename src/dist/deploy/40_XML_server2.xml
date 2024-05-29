@@ -1,4 +1,4 @@
-<server class="org.jpos.q2.iso.QServer" logger="Q2"
+<server class="org.jpos.q2.iso.QServer"  logger="Q2"
         name="xml-server-9000" realm="xml-server-9000">
     <attr name="port" type="java.lang.Integer">9000</attr>
     <channel class="org.jpos.iso.channel.XMLChannel"

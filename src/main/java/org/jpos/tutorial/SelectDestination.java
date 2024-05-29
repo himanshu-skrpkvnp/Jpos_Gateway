@@ -17,6 +17,9 @@ public class SelectDestination implements TransactionParticipant, Configurable {
     public int prepare(long id, Serializable context) {
         Context ctx = (Context) context;
 
+
+
+
         LogEvent evt  = new LogEvent(  ContextConstants.DESTINATION.toString() +"  ___________in the  custom participant--------" ) ;
 
 
@@ -25,14 +28,11 @@ public class SelectDestination implements TransactionParticipant, Configurable {
         ISOMsg m = (ISOMsg) ctx.get(ContextConstants.REQUEST.toString());
 
 
-
         if (  (m.hasField(13) )) {
 
                 String s = "myMux" ;
                 ctx.put(ContextConstants.DESTINATION.toString(), s );
                 LogEvent  evt2  = new LogEvent( ContextConstants.DESTINATION.toString() , s+"hii there" ) ;
-
-
         }
         return PREPARED | NO_JOIN | READONLY;
     }
