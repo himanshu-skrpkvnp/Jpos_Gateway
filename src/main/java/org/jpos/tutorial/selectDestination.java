@@ -8,9 +8,8 @@ import org.jpos.transaction.ContextConstants;
 import org.jpos.transaction.TransactionParticipant;
 
 import java.io.Serializable ;
-import java.util.logging.Logger;
 
-public class SelectDestination implements TransactionParticipant, Configurable {
+public class selectDestination implements TransactionParticipant, Configurable {
     Configuration cfg;
     org.jpos.util.Logger logger = new org.jpos.util.Logger() ;
     @Override
@@ -26,14 +25,10 @@ public class SelectDestination implements TransactionParticipant, Configurable {
 
         logger.log(evt);
         ISOMsg m = (ISOMsg) ctx.get(ContextConstants.REQUEST.toString());
+         String s = "myMux" ;
+        ctx.put(ContextConstants.DESTINATION.toString(), s );
+        LogEvent  evt2  = new LogEvent( ContextConstants.DESTINATION.toString() , s+"hii there" ) ;
 
-
-        if (  (m.hasField(13) )) {
-
-                String s = "myMux" ;
-                ctx.put(ContextConstants.DESTINATION.toString(), s );
-                LogEvent  evt2  = new LogEvent( ContextConstants.DESTINATION.toString() , s+"hii there" ) ;
-        }
         return PREPARED | NO_JOIN | READONLY;
     }
     public void setConfiguration (Configuration cfg) {

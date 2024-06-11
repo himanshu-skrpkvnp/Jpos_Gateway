@@ -4,7 +4,23 @@
     <property name="max-sessions" value="128"/>
     <property name="debug" value="true"/>
 
-<!--    <participant class ="org.jpos.tutorial.SelectDestination"/>-->
+<!--    <participant class ="org.jpos.tutorial.selectDestination"/>-->
+    <participant class="org.jpos.tutorial.selectorParticipant"  name="Selector" logger="Q2" >
+    <property name="0200" value="Request" />
+    <property name="0300" value="Echo" />
+    </participant>
+
+
+    <group name = "Request">
+        <participant class="org.jpos.tutorial.selectDestination"/>
+
+    </group>
+
+
+    <group name = "Echo">
+        <participant class="org.jpos.tutorial.selectDestination2"/>
+    </group>
+
     <participant class="org.jpos.transaction.participant.QueryHost"/>
     <participant class="org.jpos.transaction.participant.SendResponse"/>
 </txnmgr>
