@@ -13,7 +13,6 @@
 
     <group name = "Request">
         <participant class="org.jpos.tutorial.selectDestination"/>
-
     </group>
 
 

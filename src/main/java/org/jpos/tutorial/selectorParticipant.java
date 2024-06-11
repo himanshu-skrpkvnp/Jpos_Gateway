@@ -20,10 +20,11 @@ public class selectorParticipant implements GroupSelector , Configurable {
     public  String select(long l , Serializable serializable){
         Context ctx = (Context)serializable;
         ISOMsg resIsoMsg = (ISOMsg)ctx.get(REQUEST);
-        String selector = "";
+        String selector = "" ;
         try {
             selector = cfg.get(resIsoMsg.getMTI());
-        } catch (ISOException e) {
+        }
+        catch (ISOException e) {
             e.printStackTrace();
         }
         return selector;
@@ -32,7 +33,7 @@ public class selectorParticipant implements GroupSelector , Configurable {
 
     @Override
     public int prepare(long l, Serializable serializable) {
-        return 0;
+        return PREPARED | NO_JOIN | READONLY ;
     }
 
     @Override
