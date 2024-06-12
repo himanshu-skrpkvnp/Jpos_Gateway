@@ -18,8 +18,9 @@ public class selectDestination implements TransactionParticipant, Configurable {
         LogEvent evt  = new LogEvent(  ContextConstants.DESTINATION.toString() +"  ___________in the  custom participant--------" ) ;
         logger.log(evt);
         ISOMsg m = (ISOMsg) ctx.get(ContextConstants.REQUEST.toString());
-         String s = "myMux" ;
-         ctx.put(ContextConstants.DESTINATION.toString(), s );
+        String s = "myMux" ;
+
+        ctx.put( ContextConstants.DESTINATION.toString() ,  s ) ;
         LogEvent  evt2  = new LogEvent( ContextConstants.DESTINATION.toString() , s+"hii there" ) ;
 
         return PREPARED | NO_JOIN | READONLY;

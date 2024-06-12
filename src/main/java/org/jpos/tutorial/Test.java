@@ -31,7 +31,7 @@ public class Test implements ISORequestListener  {
             throw new RuntimeException(e);
         }
         try {
-//            isoMsg.setResponseMTI();
+//          isoMsg.setResponseMTI();
             isoMsg.set(  49 , "00");
             isoMsg.set( 89 , "234" );
             ISOMsg request =  mux.request( isoMsg , 3000 ) ;

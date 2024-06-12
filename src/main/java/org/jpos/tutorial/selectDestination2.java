@@ -27,12 +27,11 @@ public class selectDestination2 implements TransactionParticipant  {
         }
         try {
             isoMsg.set(  49 , "00");
-            isoMsg.set( 89 , "234" );
+            isoMsg.set( 89 , "in Select Destination 2 " );
             ISOMsg request =  mux.request( isoMsg , 3000 ) ;
         } catch (ISOException e) {
             e.printStackTrace();
         }
-
         return PREPARED | NO_JOIN | READONLY ;
     }
 
